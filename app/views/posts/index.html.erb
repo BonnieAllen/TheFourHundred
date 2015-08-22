@@ -1,0 +1,10 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.input :image %>
+  <%= f.input :supertitle %>
+  <%= f.button :submit %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <%= image_tag post.image.url(:medium) %>
+  <%= post.caption %>
+<% end %>

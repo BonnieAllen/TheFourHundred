@@ -1,10 +1,17 @@
-<%= simple_form_for @post do |f| %>
-  <%= f.input :image %>
-  <%= f.input :supertitle %>
-  <%= f.button :submit %>
-<% end %>
-
-<% @posts.each do |post| %>
-  <%= image_tag post.image.url(:medium) %>
-  <%= post.caption %>
-<% end %>
+<div class="posts-wrapper row">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          Allen
+        </div>
+      </div>
+      <div class="image center-block">
+        <%= link_to (image_tag post.image.url(:medium), class:'img-responsive'), post_path(post) %>
+      </div>
+      <p class="supertitle">
+        <%= post.supertitle %>
+      </p>
+    </div>
+  <% end %>
+</div>
